@@ -1,0 +1,12 @@
+# Maven
+/target/
+# Logs
+*.log
+# OS
+.DS_Store
+Thumbs.db
+# Binaries and dependencies
+*.jar
+*.war
+/mvnw
+/mvnw.cmd
