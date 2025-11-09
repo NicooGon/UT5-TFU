@@ -1,23 +1,23 @@
-package AndisUT2.ArtistAPI.Model;
+package AndisUT2.ArtistAPI.DTO;
 
-public class Playlist {
+public class PlaylistDTO {
 
     private int playlistId;
     private String name;
     private int userId;
 
-    public Playlist(int playlistId, String name, int userId) {
+    public PlaylistDTO(int playlistId, String name, int userId) {
         this.playlistId = playlistId;
         this.name = name;
         this.userId = userId;
     }
 
-    public Playlist(String name, int userId) {
+    public PlaylistDTO(String name, int userId) {
         this.name = name;
         this.userId = userId;
     }
 
-    public Playlist() {
+    public PlaylistDTO() {
     }
 
     public int getPlaylistId() {

@@ -12,7 +12,7 @@
 	<artifactId>UT5API</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>UT5API</name>
-	<description>UT2 demo</description>
+	<description>UT5 demo</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -28,6 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
+		<mapstruct.version>1.5.5.Final</mapstruct.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -41,6 +42,18 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${mapstruct.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<version>${mapstruct.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -75,6 +88,11 @@
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</path>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>${mapstruct.version}</version>
+						</path>
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
@@ -92,5 +110,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

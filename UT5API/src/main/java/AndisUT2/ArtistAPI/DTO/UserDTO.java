@@ -1,26 +1,26 @@
-package AndisUT2.ArtistAPI.Model;
+package AndisUT2.ArtistAPI.DTO;
 
-public class User {
+public class UserDTO {
 
     private int userId;
     private String name;
     private String email;
     private String username;
 
-    public User(int userId, String name, String email, String username) {
+    public UserDTO(int userId, String name, String email, String username) {
         this.userId = userId;
         this.name = name;
         this.email = email;
         this.username = username;
     }
 
-    public User(String name, String email, String username) {
+    public UserDTO(String name, String email, String username) {
         this.name = name;
         this.email = email;
         this.username = username;
     }
 
-    public User() {
+    public UserDTO() {
     }
 
     public int getUserId() {

@@ -4,6 +4,7 @@ import AndisUT2.ArtistAPI.Model.Album;
 import AndisUT2.ArtistAPI.Model.Artist;
 import AndisUT2.ArtistAPI.Repository.AlbumRepository;
 import AndisUT2.ArtistAPI.Service.Interface.IAlbumService;
+import AndisUT2.ArtistAPI.Service.Interface.IArtistService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -15,9 +16,9 @@ public class AlbumService implements IAlbumService {
 
     private final AlbumRepository albumRepository;
 
-    private final ArtistService artistService;
+    private final IArtistService artistService;
 
-    public AlbumService(AlbumRepository albumRepository, ArtistService artistService) {
+    public AlbumService(AlbumRepository albumRepository, IArtistService artistService) {
         this.albumRepository = albumRepository;
         this.artistService = artistService;
     }

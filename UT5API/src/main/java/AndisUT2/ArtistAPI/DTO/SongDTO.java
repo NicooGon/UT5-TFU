@@ -1,26 +1,26 @@
-package AndisUT2.ArtistAPI.Model;
+package AndisUT2.ArtistAPI.DTO;
 
-public class Song {
+public class SongDTO {
 
     private int songId;
     private String songName;
     private int artistId;
     private int albumId;
 
-    public Song(int songId, String songName, int artistId, int albumId) {
+    public SongDTO(int songId, String songName, int artistId, int albumId) {
         this.songId = songId;
         this.songName = songName;
         this.artistId = artistId;
         this.albumId = albumId;
     }
 
-    public Song(String songName, int artistId, int albumId) {
+    public SongDTO(String songName, int artistId, int albumId) {
         this.songName = songName;
         this.artistId = artistId;
         this.albumId = albumId;
     }
 
-    public Song(){}
+    public SongDTO(){}
 
     public int getSongId() {
         return songId;

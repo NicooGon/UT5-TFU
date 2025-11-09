@@ -20,7 +20,7 @@ public class UserRepository {
 
     private static final RowMapper<User> userRowMapper = (rs, rowNum) -> {
         User user = new User();
-        user.setUserID(rs.getInt("user_id"));
+        user.setUserId(rs.getInt("user_id"));
         user.setName(rs.getString("name"));
         user.setEmail(rs.getString("email"));
         user.setUsername(rs.getString("username"));
@@ -34,14 +34,14 @@ public class UserRepository {
         return jdbcTemplate.query(sql, userRowMapper);
     }
 
-    public User getUserById(int userID) {
+    public User getUserById(int userId) {
         String sql = "SELECT * FROM users WHERE user_id = ?";
         try {
-            return jdbcTemplate.queryForObject(sql, userRowMapper, userID);
+            return jdbcTemplate.queryForObject(sql, userRowMapper, userId);
         }
         catch (EmptyResultDataAccessException e)
         {
-            throw new RuntimeException("No se  encontro Usuario con Id: " + userID);
+            throw new RuntimeException("No se  encontro Usuario con Id: " + userId);
         }
     }
 
@@ -70,7 +70,7 @@ public class UserRepository {
 
         Number key = keyHolder.getKey();
         if (key != null) {
-            user.setUserID(key.intValue());
+            user.setUserId(key.intValue());
         } else {
             throw new RuntimeException("No se pudo obtener el ID generado del usuario");
         }

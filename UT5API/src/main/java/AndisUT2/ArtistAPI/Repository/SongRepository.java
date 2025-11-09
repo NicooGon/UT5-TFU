@@ -22,8 +22,8 @@ public class SongRepository {
         Song song = new Song();
         song.setSongId(rs.getInt("song_id"));
         song.setSongName(rs.getString("song_name"));
-        song.setArtistID(rs.getInt("artist_id"));
-        song.setAlbumID(rs.getInt("album_id"));
+        song.setArtistId(rs.getInt("artist_id"));
+        song.setAlbumId(rs.getInt("album_id"));
         return song;
     };
 
@@ -58,8 +58,8 @@ public class SongRepository {
         jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, song.getSongName());
-            ps.setInt(2, song.getArtistID());
-            ps.setInt(3, song.getAlbumID());
+            ps.setInt(2, song.getArtistId());
+            ps.setInt(3, song.getAlbumId());
             return ps;
         }, keyHolder);
 
@@ -75,7 +75,7 @@ public class SongRepository {
 
     public Song updateSong(Song song) {
         String sql = "UPDATE song SET song_name = ?, artist_id = ?, album_id = ? WHERE song_id=?";
-        int rows = jdbcTemplate.update(sql, song.getSongName(), song.getArtistID(), song.getAlbumID(), song.getSongId());
+        int rows = jdbcTemplate.update(sql, song.getSongName(), song.getArtistId(), song.getAlbumId(), song.getSongId());
 
         if (rows > 0) {
             return getSongByID(song.getSongId());

@@ -19,9 +19,9 @@ public class PlaylistRepository {
 
     private static final RowMapper<Playlist> playlistRowMapper = (rs, rowNum) -> {
         Playlist playlist = new Playlist();
-        playlist.setPlaylistID(rs.getInt("playlist_id"));
+        playlist.setPlaylistId(rs.getInt("playlist_id"));
         playlist.setName(rs.getString("name"));
-        playlist.setUserID(rs.getInt("user_id"));
+        playlist.setUserId(rs.getInt("user_id"));
         return playlist;
     };
 
@@ -34,13 +34,13 @@ public class PlaylistRepository {
         return jdbcTemplate.query(sql, playlistRowMapper);
     }
 
-    public Playlist getPlaylistById(int playlistID) {
+    public Playlist getPlaylistById(int playlistId) {
         String sql = "SELECT * FROM playlist WHERE playlist_id = ?";
         try {
-            return jdbcTemplate.queryForObject(sql, playlistRowMapper, playlistID);
+            return jdbcTemplate.queryForObject(sql, playlistRowMapper, playlistId);
         }
         catch (EmptyResultDataAccessException e) {
-            throw new RuntimeException("No se encontró Playlist con Id: " + playlistID);
+            throw new RuntimeException("No se encontró Playlist con Id: " + playlistId);
         }
     }
 
@@ -61,13 +61,13 @@ public class PlaylistRepository {
         jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, playlist.getName());
-            ps.setInt(2, playlist.getUserID());
+            ps.setInt(2, playlist.getUserId());
             return ps;
         }, keyHolder);
 
         Number key = keyHolder.getKey();
         if (key != null) {
-            playlist.setPlaylistID(key.intValue());
+            playlist.setPlaylistId(key.intValue());
         } else {
             throw new RuntimeException("No se pudo obtener el ID generado de la playlist");
         }

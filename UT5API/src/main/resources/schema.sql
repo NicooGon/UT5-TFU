@@ -38,3 +38,11 @@ CREATE TABLE IF NOT EXISTS playlist (
    user_id INT,
    CONSTRAINT fk_playlist_user_id FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
+
+CREATE TABLE IF NOT EXISTS playlist_song (
+    playlist_id INT NOT NULL,
+    song_id INT NOT NULL,
+    PRIMARY KEY (playlist_id, song_id),
+    FOREIGN KEY (playlist_id) REFERENCES playlist(playlist_id),
+    FOREIGN KEY (song_id) REFERENCES song(song_id)
+);

@@ -82,9 +82,36 @@ INSERT IGNORE INTO users (name, email, username) VALUES
 ('lucia', 'lucia@outlook.com', 'lucia');
 
 INSERT INTO playlist (name, user_id) VALUES
-('Rock Clásico', 1),
-('Música para estudiar', 2),
-('Favoritas de Foo Fighters', 1);
+('Rock Clasico', 1),
+('Musica para estudiar', 2),
+('Favoritas de Foo Fighters', 1),
+('Pop Internacional', 2),
+('Reggae', 1);
+
+INSERT INTO playlist_song (playlist_id, song_id) VALUES
+(1, 2),
+(1, 4),
+(1, 6);
+
+INSERT INTO playlist_song (playlist_id, song_id) VALUES
+(2, 13),
+(2, 22),
+(2, 25);
+
+INSERT INTO playlist_song (playlist_id, song_id) VALUES
+(3, 29),
+(3, 31),
+(3, 33);
+
+INSERT INTO playlist_song (playlist_id, song_id) VALUES
+(4, 45),
+(4, 47),
+(4, 49);
+
+INSERT INTO playlist_song (playlist_id, song_id) VALUES
+(5, 18),
+(5, 26),
+(5, 48);
 
 
 

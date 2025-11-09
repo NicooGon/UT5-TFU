@@ -22,8 +22,8 @@ public class PlaylistService implements IPlaylistService {
     }
 
     @Override
-    public Playlist getPlaylistById(int playlistID) {
-        return playlistRepository.getPlaylistById(playlistID);
+    public Playlist getPlaylistById(int playlistId) {
+        return playlistRepository.getPlaylistById(playlistId);
     }
 
     @Override

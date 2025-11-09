@@ -4,6 +4,8 @@ import AndisUT2.ArtistAPI.Model.Album;
 import AndisUT2.ArtistAPI.Model.Artist;
 import AndisUT2.ArtistAPI.Model.Song;
 import AndisUT2.ArtistAPI.Repository.SongRepository;
+import AndisUT2.ArtistAPI.Service.Interface.IAlbumService;
+import AndisUT2.ArtistAPI.Service.Interface.IArtistService;
 import AndisUT2.ArtistAPI.Service.Interface.ISongService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -16,10 +18,10 @@ public class SongService implements ISongService {
 
 
     private SongRepository songRepository;
-    private ArtistService artistService;
-    private AlbumService albumService;
+    private IArtistService artistService;
+    private IAlbumService albumService;
 
-    public SongService(SongRepository songRepository, ArtistService artistService, AlbumService albumService) {
+    public SongService(SongRepository songRepository, IArtistService artistService, IAlbumService albumService) {
         this.songRepository = songRepository;
         this.artistService = artistService;
         this.albumService = albumService;
@@ -66,14 +68,14 @@ public class SongService implements ISongService {
 
     @Override
     public Song saveSong(String name, int artistId, int albumId) {
-        Artist artist;
-        Album album;
+        Artist artist = artistService.getArtistById(artistId);
+        if (artist == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Artista no encontrado con ID: " + artistId);
+        }
 
-        try {
-            artist = artistService.getArtistById(artistId);
-            album = albumService.getAlbumById(albumId);
-        } catch (RuntimeException e) {
-            throw new RuntimeException("No se puede crear la canción: " + e.getMessage());
+        Album album = albumService.getAlbumById(albumId);
+        if (album == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Álbum no encontrado con ID: " + albumId);
         }
 
         Song song = new Song(name, artistId, albumId);
@@ -84,12 +86,9 @@ public class SongService implements ISongService {
 
     @Override
     public Song updateSong(String name, int songID) {
-        Song song;
-
-        try {
-            song = getSongById(songID);
-        } catch (RuntimeException e) {
-            throw new RuntimeException("No se puede actualizar  la canción: " + e.getMessage());
+        Song song = songRepository.getSongByID(songID);
+        if (song == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Canción no encontrada con ID: " + songID);
         }
 
         song.setSongName(name);
