@@ -12,4 +12,5 @@ public interface IAlbumService {
     public List<Album> getAlbumsByArtistId(int artistId);
     public Album saveAlbum(String name, String artistName);
     public Album updateAlbum(int albumId, String newName);
+
 }

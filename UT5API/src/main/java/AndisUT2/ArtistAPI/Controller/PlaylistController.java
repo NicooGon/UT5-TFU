@@ -2,6 +2,7 @@ package AndisUT2.ArtistAPI.Controller;
 
 import AndisUT2.ArtistAPI.Model.Playlist;
 import AndisUT2.ArtistAPI.Service.Interface.IPlaylistService;
+import io.micrometer.core.annotation.Timed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,11 @@ public class PlaylistController {
                 : ResponseEntity.ok(playlists);
     }
 
+    @Timed(
+            value = "playlist.getById-LayerArchitecture",
+            description = "Tiempo de consulta para obtener una playlist en Layer Architecture",
+            percentiles = {0.5, 0.95, 0.99}
+    )
     @GetMapping("/{id}")
     public ResponseEntity<Playlist> getPlaylistById(@PathVariable int id) {
         Playlist playlist = playlistService.getPlaylistById(id);
