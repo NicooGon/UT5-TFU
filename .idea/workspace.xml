@@ -5,33 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73a666b0-8736-4f44-bd6a-ffe3edc09c53" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Interface/IAlbumRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Interface/IArtistRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Interface/IPlaylistRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Interface/IPlaylistSongRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Interface/ISongRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Interface/IUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/DTO/SongWithInfoDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Controller/AlbumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Controller/AlbumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/AlbumRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Implementation/AlbumRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/ArtistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Implementation/ArtistRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/PlaylistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Implementation/PlaylistRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/PlaylistSongRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Implementation/PlaylistSongRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/SongRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Implementation/SongRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Implementation/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/AlbumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/AlbumService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/ArtistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/ArtistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/PlaylistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/PlaylistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/PlaylistSongService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/PlaylistSongService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/SongService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/SongService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IAlbumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IAlbumService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IArtistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IArtistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IPlaylistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IPlaylistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IPlaylistSongService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IPlaylistSongService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/ISongService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/ISongService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/DTO/PlaylistSongDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/DTO/PlaylistWithInfoDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Mapper/PlaylistSongMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Mapper/PlaylistSongMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,24 +53,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nicol/Documents/Andis2/UT5-TFU&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "dtoWithInfo",
+    "last_opened_file_path": "C:/Users/nicol/Documents/Andis2/UT5-TFU",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nicol\Documents\Andis2\UT5-TFU\UT5API\src\main\java\AndisUT2\ArtistAPI\Mapper" />
