@@ -3,7 +3,7 @@ package AndisUT2.ArtistAPI.Service.Implementation;
 import AndisUT2.ArtistAPI.DTO.AlbumDTO;
 import AndisUT2.ArtistAPI.Mapper.AlbumMapper;
 import AndisUT2.ArtistAPI.Model.Album;
-import AndisUT2.ArtistAPI.Model.Artist;
+import AndisUT2.ArtistAPI.DTO.ArtistDTO;
 import AndisUT2.ArtistAPI.Repository.AlbumRepository;
 import AndisUT2.ArtistAPI.Service.Interface.IAlbumService;
 import AndisUT2.ArtistAPI.Service.Interface.IArtistService;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @Service
 public class AlbumService implements IAlbumService {
@@ -74,7 +73,7 @@ public class AlbumService implements IAlbumService {
 
     @Override
     public AlbumDTO saveAlbum(String name, String artistName){
-        Artist artist = artistService.getArtistByName(artistName);
+        ArtistDTO artist = artistService.getArtistByName(artistName);
 
         Album album = new Album(name, artist.getArtistId());
         albumRepository.saveAlbum(album);
