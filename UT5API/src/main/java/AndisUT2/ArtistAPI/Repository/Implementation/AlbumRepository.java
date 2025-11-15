@@ -1,6 +1,7 @@
-package AndisUT2.ArtistAPI.Repository;
+package AndisUT2.ArtistAPI.Repository.Implementation;
 
 import AndisUT2.ArtistAPI.Model.Album;
+import AndisUT2.ArtistAPI.Repository.Interface.IAlbumRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -13,7 +14,7 @@ import java.sql.Statement;
 import java.util.List;
 
 @Repository
-public class AlbumRepository {
+public class AlbumRepository implements IAlbumRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -27,6 +28,7 @@ public class AlbumRepository {
 
     public AlbumRepository(JdbcTemplate jdbcTemplate) {this.jdbcTemplate = jdbcTemplate;}
 
+    @Override
     public Album getAlbumByName(String name) {
         String sql = "select * from album where album_name = ?";
         try{
@@ -37,6 +39,7 @@ public class AlbumRepository {
         }
     }
 
+    @Override
     public Album getAlbumById(int albumId) {
         String sql = "select * from album where album_id = ?";
         try{
@@ -47,16 +50,19 @@ public class AlbumRepository {
         }
     }
 
+    @Override
     public List<Album> getAllAlbums() {
         String sql = "select * from album";
         return jdbcTemplate.query(sql, albumRowMapper);
     }
 
+    @Override
     public List<Album> getAlbumsByArtistId(int artistId) {
         String sql = "select * from album where artist_id = ?";
         return jdbcTemplate.query(sql, albumRowMapper, artistId);
     }
 
+    @Override
     public Album saveAlbum(Album album) {
         String sql = "INSERT INTO album (album_name, artist_id) VALUES (?, ?)";
 
@@ -79,6 +85,7 @@ public class AlbumRepository {
         return album;
     }
 
+    @Override
     public Album updateAlbum(Album album) {
         String sql = "UPDATE album SET album_name = ?, artist_id = ? WHERE album_id = ?";
         int rows = jdbcTemplate.update(sql, album.getAlbumName(), album.getArtistId(), album.getAlbumId());

@@ -1,6 +1,6 @@
 package AndisUT2.ArtistAPI.Mapper;
 
-import AndisUT2.ArtistAPI.DTO.PlaylistSongDTO;
+import AndisUT2.ArtistAPI.DTO.PlaylistWithInfoDTO;
 import AndisUT2.ArtistAPI.Model.PlaylistSong;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -13,9 +13,9 @@ public interface PlaylistSongMapper {
 
     @Mapping(source = "playlistId", target = "playlistId")
     @Mapping(source = "songId", target = "songId")
-    PlaylistSongDTO playlistToPlaylistDTO(PlaylistSong playlistSong);
+    PlaylistWithInfoDTO playlistToPlaylistDTO(PlaylistSong playlistSong);
 
     @Mapping(source = "playlistId", target = "playlistId")
     @Mapping(source = "songId", target = "songId")
-    PlaylistSong playlistSongDTOtoPlaylistSong(PlaylistSongDTO playlistSongDTO);
+    PlaylistSong playlistSongDTOtoPlaylistSong(PlaylistWithInfoDTO playlistWithInfoDTO);
 }

@@ -1,9 +1,8 @@
-package AndisUT2.ArtistAPI.Service.Interface;
+package AndisUT2.ArtistAPI.Repository.Interface;
 
 import java.util.List;
 
-public interface IPlaylistSongService {
-
+public interface IPlaylistSongRepository {
     void addSongToPlaylist(int playlistId, int songId);
     List<Integer> getSongsByPlaylistId(int playlistId);
     List<Integer> getPlaylistsBySongId(int songId);

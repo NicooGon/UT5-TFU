@@ -1,6 +1,7 @@
-package AndisUT2.ArtistAPI.Repository;
+package AndisUT2.ArtistAPI.Repository.Implementation;
 
 import AndisUT2.ArtistAPI.Model.Song;
+import AndisUT2.ArtistAPI.Repository.Interface.ISongRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -12,7 +13,7 @@ import java.sql.Statement;
 import java.util.List;
 
 @Repository
-public class SongRepository {
+public class SongRepository implements ISongRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -27,30 +28,37 @@ public class SongRepository {
         return song;
     };
 
+    @Override
     public Song getSongByID(int songId) {
         String sql = "select * from song where song_id=?";
         return jdbcTemplate.queryForObject(sql, songMapper, songId);
     };
 
+    @Override
     public Song getSongByName(String songName) {
         String sql = "select * from song where song_name=?";
         return jdbcTemplate.queryForObject(sql, songMapper, songName);
     }
+
+    @Override
     public List<Song> getAllSongs() {
         String sql = "select * from song";
         return jdbcTemplate.query(sql, songMapper);
     }
 
+    @Override
     public List<Song> getSongsByArtistID(int artistID) {
         String sql = "select * from song where artist_id=?";
         return jdbcTemplate.query(sql, songMapper, artistID);
     }
 
+    @Override
     public List<Song> getSongsByAlbumID(int albumID) {
         String sql = "select * from song where album_id=?";
         return jdbcTemplate.query(sql, songMapper, albumID);
     }
 
+    @Override
     public Song saveSong(Song song) {
         String sql = "INSERT INTO song (song_name, artist_id, album_id) VALUES (?, ?, ?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -73,6 +81,7 @@ public class SongRepository {
         return song;
     }
 
+    @Override
     public Song updateSong(Song song) {
         String sql = "UPDATE song SET song_name = ?, artist_id = ?, album_id = ? WHERE song_id=?";
         int rows = jdbcTemplate.update(sql, song.getSongName(), song.getArtistId(), song.getAlbumId(), song.getSongId());
