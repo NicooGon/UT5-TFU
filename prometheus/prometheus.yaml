@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'ut5-api'
+    metrics_path: '/UT5API/actuator/prometheus'
+    static_configs:
+      - targets: ['ut5-api:8080']
