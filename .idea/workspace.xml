@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="73a666b0-8736-4f44-bd6a-ffe3edc09c53" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Config/MetricsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Interface/IAlbumRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Interface/IArtistRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Interface/IPlaylistRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Interface/IPlaylistSongRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Interface/ISongRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Interface/IUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prometheus/prometheus.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/ArtistApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/ArtistApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Controller/AlbumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Controller/AlbumController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Controller/ArtistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Controller/ArtistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Controller/PlaylistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Controller/PlaylistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Controller/PlaylistSongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Controller/PlaylistSongController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Controller/SongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Controller/SongController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/AlbumRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Implementation/AlbumRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/ArtistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Implementation/ArtistRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/PlaylistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Implementation/PlaylistRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/PlaylistSongRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Implementation/PlaylistSongRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/SongRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Implementation/SongRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Repository/Implementation/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/AlbumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/AlbumService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/ArtistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/ArtistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/PlaylistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/PlaylistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/PlaylistSongService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/PlaylistSongService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/SongService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/SongService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Implementation/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IAlbumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IAlbumService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IArtistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IArtistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IPlaylistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IPlaylistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IPlaylistSongService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IPlaylistSongService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/ISongService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/ISongService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/java/AndisUT2/ArtistAPI/Service/Interface/IUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UT5API/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/UT5API/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;NicooGon&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/NicooGon/UT5-TFU.git&quot;,
+    &quot;accountId&quot;: &quot;9d13b3a5-b88d-43cd-a59f-5aa3a610b466&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="35V3LOWOhWDhXP8uJ4BrI3wB0Ls" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.UT5API [clean,install].executor": "Run",
+    "Maven.UT5API [clean].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.ArtistApiApplication.executor": "Run",
+    "git-widget-placeholder": "Merging soap-xml",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/nicol/Documents/Andis2/UT5-TFU",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nicol\Documents\Andis2\UT5-TFU\UT5API\src\main\java\AndisUT2\ArtistAPI\Mapper" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install" />
+      <command value="mvn clean" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="ArtistApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="UT5API" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="AndisUT2.ArtistAPI.ArtistApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="73a666b0-8736-4f44-bd6a-ffe3edc09c53" name="Changes" comment="" />
+      <created>1763181355608</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763181355608</updated>
+      <workItem from="1763181357773" duration="19000" />
+      <workItem from="1763181400199" duration="4895000" />
+      <workItem from="1763186331296" duration="4256000" />
+      <workItem from="1763191486439" duration="1014000" />
+      <workItem from="1763245546008" duration="818000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

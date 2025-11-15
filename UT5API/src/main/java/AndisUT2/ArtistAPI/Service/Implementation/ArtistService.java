@@ -1,7 +1,9 @@
 package AndisUT2.ArtistAPI.Service.Implementation;
 
+import AndisUT2.ArtistAPI.DTO.ArtistDTO;
+import AndisUT2.ArtistAPI.Mapper.ArtistMapper;
 import AndisUT2.ArtistAPI.Model.Artist;
-import AndisUT2.ArtistAPI.Repository.ArtistRepository;
+import AndisUT2.ArtistAPI.Repository.Interface.IArtistRepository;
 import AndisUT2.ArtistAPI.Service.Interface.IArtistService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -12,52 +14,71 @@ import java.util.List;
 @Service
 public class ArtistService implements IArtistService {
 
-    private final ArtistRepository artistRepository;
+    private final IArtistRepository artistRepository;
+    private static final ArtistMapper artistMapper = ArtistMapper.INSTANCE;
 
-    public ArtistService(ArtistRepository artistRepository) { this.artistRepository = artistRepository; }
+    public ArtistService(IArtistRepository artistRepository) {
+        this.artistRepository = artistRepository;
+    }
 
     @Override
-    public Artist getArtistByName(String name){
+    public ArtistDTO getArtistByName(String name){
         Artist artist = artistRepository.getArtistByName(name);
 
-        if(artist == null){
+        if (artist == null){
             throw new ResponseStatusException(
                     HttpStatus.NOT_FOUND,
-                    "Artista no encontrado con nombre: " + name);
+                    "Artista no encontrado con nombre: " + name
+            );
         }
-        return artist;
+
+        return artistMapper.artistToArtistDTO(artist);
     }
 
     @Override
-    public List<Artist> getAllArtists(){
-        return artistRepository.getAllArtists();
+    public List<ArtistDTO> getAllArtists(){
+        return artistRepository.getAllArtists()
+                .stream()
+                .map(artistMapper::artistToArtistDTO).toList();
     }
 
     @Override
-    public Artist getArtistById(int id){
+    public ArtistDTO getArtistById(int id){
         Artist artist = artistRepository.getArtistById(id);
 
-        if(artist == null){
+        if (artist == null){
             throw new ResponseStatusException(
                     HttpStatus.NOT_FOUND,
-                    "Artista no encontrado con ID: " + id);
+                    "Artista no encontrado con ID: " + id
+            );
         }
-        return artist;
+
+        return artistMapper.artistToArtistDTO(artist);
     }
 
     @Override
-    public Artist saveArtist(String name){
+    public ArtistDTO saveArtist(String name){
         Artist artist = new Artist(name);
         artistRepository.saveArtist(artist);
-        return artist;
+
+        return artistMapper.artistToArtistDTO(artist);
     }
 
     @Override
-    public Artist updateArtist(int artistId, String newName){
-        Artist artist = getArtistById(artistId);
+    public ArtistDTO updateArtist(int artistId, String newName){
+        Artist artist = artistRepository.getArtistById(artistId);
+
+        if (artist == null){
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND,
+                    "Artista no encontrado con ID: " + artistId
+            );
+        }
+
         artist.setName(newName);
         artistRepository.updateArtist(artist);
 
-        return artist;
+        return artistMapper.artistToArtistDTO(artist);
     }
 }
+

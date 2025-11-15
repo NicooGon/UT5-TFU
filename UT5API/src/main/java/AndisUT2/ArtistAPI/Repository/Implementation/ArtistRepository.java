@@ -1,6 +1,7 @@
-package AndisUT2.ArtistAPI.Repository;
+package AndisUT2.ArtistAPI.Repository.Implementation;
 
 import AndisUT2.ArtistAPI.Model.Artist;
+import AndisUT2.ArtistAPI.Repository.Interface.IArtistRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -12,7 +13,7 @@ import java.sql.Statement;
 import java.util.List;
 
 @Repository
-public class ArtistRepository {
+public class ArtistRepository implements IArtistRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -25,21 +26,25 @@ public class ArtistRepository {
 
     public ArtistRepository(JdbcTemplate jdbcTemplate) {this.jdbcTemplate = jdbcTemplate;}
 
+    @Override
     public Artist getArtistByName(String name) {
         String sql = "select * from artist where name = ?";
         return jdbcTemplate.queryForObject(sql, artistRowMapper, name);
     }
 
+    @Override
     public Artist getArtistById(int artistID) {
         String sql = "select * from artist where artist_id = ?";
         return jdbcTemplate.queryForObject(sql, artistRowMapper, artistID);
     }
 
+    @Override
     public List<Artist> getAllArtists() {
         String sql = "select * from artist";
         return jdbcTemplate.query(sql, artistRowMapper);
     }
 
+    @Override
     public Artist saveArtist(Artist artist) {
         String sql = "INSERT INTO artist (name) VALUES (?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -60,6 +65,7 @@ public class ArtistRepository {
         return artist;
     }
 
+    @Override
     public Artist updateArtist(Artist artist) {
         String sql = "UPDATE artist SET name = ? WHERE artist_id = ?";
         int rows = jdbcTemplate.update(sql, artist.getName(), artist.getArtistId());

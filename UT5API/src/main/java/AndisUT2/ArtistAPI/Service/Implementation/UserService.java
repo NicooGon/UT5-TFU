@@ -1,7 +1,9 @@
 package AndisUT2.ArtistAPI.Service.Implementation;
 
+import AndisUT2.ArtistAPI.DTO.UserDTO;
+import AndisUT2.ArtistAPI.Mapper.UserMapper;
 import AndisUT2.ArtistAPI.Model.User;
-import AndisUT2.ArtistAPI.Repository.UserRepository;
+import AndisUT2.ArtistAPI.Repository.Interface.IUserRepository;
 import AndisUT2.ArtistAPI.Service.Interface.IUserService;
 import org.springframework.stereotype.Service;
 
@@ -10,28 +12,37 @@ import java.util.List;
 @Service
 public class UserService implements IUserService {
 
-    private final UserRepository userRepository;
+    private final IUserRepository userRepository;
+    private static final UserMapper userMapper = UserMapper.INSTANCE;
 
-    public UserService(UserRepository userRepository) { this.userRepository = userRepository; }
-
-    @Override
-    public List<User> getAllUsers(){
-        return userRepository.getAllUsers();
+    public UserService(IUserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
-    public User getUserById(int id){
-        return userRepository.getUserById(id);
+    public List<UserDTO> getAllUsers(){
+        return userRepository.getAllUsers()
+                .stream()
+                .map(userMapper::userToUserDTO).toList();
     }
 
     @Override
-    public User getUserByUsername(String username){
-        return userRepository.getUserByUsername(username);
+    public UserDTO getUserById(int id){
+        User user = userRepository.getUserById(id);
+        return userMapper.userToUserDTO(user);
     }
 
     @Override
-    public User saveUser(String name, String email, String username ) {
+    public UserDTO getUserByUsername(String username){
+        User user = userRepository.getUserByUsername(username);
+        return userMapper.userToUserDTO(user);
+    }
+
+    @Override
+    public UserDTO saveUser(String name, String email, String username ) {
         User user = new User(name, email, username);
-        return userRepository.save(user);
+        userRepository.save(user);
+        return userMapper.userToUserDTO(user);
     }
 }
+

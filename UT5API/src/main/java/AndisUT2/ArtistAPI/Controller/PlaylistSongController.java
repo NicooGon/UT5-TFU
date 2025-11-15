@@ -14,12 +14,14 @@ public class PlaylistSongController {
     @Autowired
     private IPlaylistSongService playlistSongService;
 
+
     @PostMapping("/add")
     public ResponseEntity<String> addSongToPlaylist(@RequestParam int playlistId, @RequestParam int songId) {
         try {
             playlistSongService.addSongToPlaylist(playlistId, songId);
             return ResponseEntity.ok("Canción agregada correctamente a la lista de reproducción.");
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             return ResponseEntity.status(500).body("Error al agregar la canción: " + e.getMessage());
         }
     }

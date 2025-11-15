@@ -1,5 +1,6 @@
 package AndisUT2.ArtistAPI.Controller;
 
+import AndisUT2.ArtistAPI.DTO.UserDTO;
 import AndisUT2.ArtistAPI.Model.User;
 import AndisUT2.ArtistAPI.Service.Interface.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,28 +17,28 @@ public class UserController {
     private IUserService userService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<User>> getUsers() {
-        List<User> users = userService.getAllUsers();
+    public ResponseEntity<List<UserDTO>> getUsers() {
+        List<UserDTO> users = userService.getAllUsers();
         return users.isEmpty()
                 ? ResponseEntity.noContent().build()
                 : ResponseEntity.ok(users);
     }
 
     @GetMapping("/ById/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable int id) {
-        User user = userService.getUserById(id);
+    public ResponseEntity<UserDTO> getUserById(@PathVariable int id) {
+        UserDTO user = userService.getUserById(id);
         return ResponseEntity.ok(user);
     }
 
     @GetMapping("/ByUsername/{username}")
-    public ResponseEntity<User> getUserByUsername(@PathVariable String username) {
-        User user = userService.getUserByUsername(username);
+    public ResponseEntity<UserDTO> getUserByUsername(@PathVariable String username) {
+        UserDTO user = userService.getUserByUsername(username);
         return ResponseEntity.ok(user);
     }
 
     @PostMapping("/save")
-    public ResponseEntity<User> saveUser(@RequestParam String name, @RequestParam String email, @RequestParam String username) {
-        User user = userService.saveUser(name, email, username);
+    public ResponseEntity<UserDTO> saveUser(@RequestParam String name, @RequestParam String email, @RequestParam String username) {
+        UserDTO user = userService.saveUser(name, email, username);
         return ResponseEntity.ok(user);
     }
 }
