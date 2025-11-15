@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/ArtistAPI/pom.xml" />
+        <option value="$PROJECT_DIR$/UT5API/pom.xml" />
       </list>
     </option>
   </component>

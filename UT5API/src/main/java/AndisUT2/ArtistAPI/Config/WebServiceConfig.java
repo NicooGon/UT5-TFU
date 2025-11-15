@@ -6,20 +6,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import org.springframework.core.io.ClassPathResource;
-
 import org.springframework.ws.config.annotation.EnableWs;
 import org.springframework.ws.config.annotation.WsConfigurerAdapter;
-
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
-
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
-
 import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 @Configuration
 @EnableWs
 public class WebServiceConfig extends WsConfigurerAdapter {
+
+    private static final String SOAP_PACKAGE = "AndisUT2.ArtistAPI.Soap";
 
     @Bean
     public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext context) {
@@ -42,5 +41,12 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     @Bean
     public XsdSchema usersSchema() {
         return new SimpleXsdSchema(new ClassPathResource("xsd/users.xsd"));
+    }
+
+    @Bean
+    public Jaxb2Marshaller jaxb2Marshaller() {
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setContextPath(SOAP_PACKAGE);
+        return marshaller;
     }
 }

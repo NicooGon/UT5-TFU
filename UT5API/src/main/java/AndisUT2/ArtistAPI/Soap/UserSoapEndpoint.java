@@ -1,9 +1,6 @@
 package AndisUT2.ArtistAPI.Soap;
 
 import AndisUT2.ArtistAPI.Service.Interface.IUserService;
-import com.artistapi.soap.GetUserByIdRequest;
-import com.artistapi.soap.GetUserByIdResponse;
-import com.artistapi.soap.User;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -24,16 +21,24 @@ public class UserSoapEndpoint {
     @ResponsePayload
     public GetUserByIdResponse getUserById(@RequestPayload GetUserByIdRequest request) {
 
-        var u = userService.getUserById(request.getUserId());
+        var entity = userService.getUserById(request.getUserId());
 
-        User soapUser = new User();
-        soapUser.setUserId(u.getUserId());
-        soapUser.setName(u.getName());
-        soapUser.setEmail(u.getEmail());
-        soapUser.setUsername(u.getUsername());
+        // si no existe, devolvemos respuesta vacía (o podés tirar SOAP Fault)
+        if (entity == null) {
+            GetUserByIdResponse empty = new GetUserByIdResponse();
+            empty.setUser(null);
+            return empty;
+        }
+
+        // Mapeo a clase JAXB generada por XSD
+        User user = new User();
+        user.setUserId(entity.getUserId());
+        user.setName(entity.getName());
+        user.setEmail(entity.getEmail());
+        user.setUsername(entity.getUsername());
 
         GetUserByIdResponse response = new GetUserByIdResponse();
-        response.setUser(soapUser);
+        response.setUser(user);
 
         return response;
     }
