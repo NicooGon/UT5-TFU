@@ -1,5 +1,6 @@
 package AndisUT2.ArtistAPI.Controller;
 
+import AndisUT2.ArtistAPI.DTO.AlbumDTO;
 import AndisUT2.ArtistAPI.Model.Album;
 import AndisUT2.ArtistAPI.Service.Interface.IAlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,42 +17,42 @@ public class AlbumController {
     private IAlbumService albumService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<Album>> getAllAlbums(){
-        List<Album> albums = albumService.getAllAlbums();
+    public ResponseEntity<List<AlbumDTO>> getAllAlbums(){
+        List<AlbumDTO> albums = albumService.getAllAlbums();
         return albums.isEmpty()
                 ? ResponseEntity.noContent().build()
                 : ResponseEntity.ok(albums);
     }
 
     @GetMapping("/by-name")
-    public ResponseEntity<Album> getAlbumByName(@RequestParam String name){
-        Album album = albumService.getAlbumByName(name);
+    public ResponseEntity<AlbumDTO> getAlbumByName(@RequestParam String name){
+        AlbumDTO album = albumService.getAlbumByName(name);
         return ResponseEntity.ok(album);
     }
 
-    @GetMapping("by-id")
-    public ResponseEntity<Album> getAlbumById(@RequestParam int id){
-        Album album = albumService.getAlbumById(id);
+    @GetMapping("/by-id")
+    public ResponseEntity<AlbumDTO> getAlbumById(@RequestParam int id){
+        AlbumDTO album = albumService.getAlbumById(id);
         return ResponseEntity.ok(album);
     }
 
     @GetMapping("/by-artist-id")
-    public ResponseEntity<List<Album>> getAlbumByArtistId(@RequestParam int id){
-        List<Album> albums = albumService.getAlbumsByArtistId(id);
+    public ResponseEntity<List<AlbumDTO>> getAlbumByArtistId(@RequestParam int id){
+        List<AlbumDTO> albums = albumService.getAlbumsByArtistId(id);
         return albums.isEmpty()
                 ? ResponseEntity.noContent().build()
                 : ResponseEntity.ok(albums);
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Album> saveAlbum(@RequestParam String albumName, String artistName){
-        Album album = albumService.saveAlbum(albumName, artistName);
+    public ResponseEntity<AlbumDTO> saveAlbum(@RequestParam String albumName, @RequestParam String artistName){
+        AlbumDTO album = albumService.saveAlbum(albumName, artistName);
         return ResponseEntity.ok(album);
     }
 
     @PatchMapping("/update-by-id")
-    public ResponseEntity<Album> updateAlbumById(@RequestParam int id, @RequestParam String newName){
-        Album album = albumService.updateAlbum(id, newName);
+    public ResponseEntity<AlbumDTO> updateAlbumById(@RequestParam int id, @RequestParam String newName){
+        AlbumDTO album = albumService.updateAlbum(id, newName);
         return ResponseEntity.ok(album);
     }
 }

@@ -1,5 +1,6 @@
 package AndisUT2.ArtistAPI.Controller;
 
+import AndisUT2.ArtistAPI.DTO.SongDTO;
 import AndisUT2.ArtistAPI.Model.Song;
 import AndisUT2.ArtistAPI.Service.Interface.ISongService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,50 +17,50 @@ public class SongController {
     private ISongService songService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<Song>> getAllSongs() {
-        List<Song> songs = songService.getAllSongs();
+    public ResponseEntity<List<SongDTO>> getAllSongs() {
+        List<SongDTO> songs = songService.getAllSongs();
         return songs.isEmpty()
                 ? ResponseEntity.noContent().build()
                 : ResponseEntity.ok(songs);
     }
 
     @GetMapping("/by-id")
-    public ResponseEntity<Song> getSongById(@RequestParam int id) {
-        Song song = songService.getSongById(id);
+    public ResponseEntity<SongDTO> getSongById(@RequestParam int id) {
+        SongDTO song = songService.getSongById(id);
         return ResponseEntity.ok(song);
     }
 
     @GetMapping("/by-name")
-    public ResponseEntity<Song> getSongByName(@RequestParam String name) {
-        Song song = songService.getSongByName(name);
+    public ResponseEntity<SongDTO> getSongByName(@RequestParam String name) {
+        SongDTO song = songService.getSongByName(name);
         return ResponseEntity.ok(song);
     }
 
     @GetMapping("/by-artist-id")
-    public ResponseEntity <List<Song>> getSongByArtistId(@RequestParam int artistId) {
-        List<Song> songs = songService.getSongsByArtistId(artistId);
+    public ResponseEntity <List<SongDTO>> getSongByArtistId(@RequestParam int artistId) {
+        List<SongDTO> songs = songService.getSongsByArtistId(artistId);
         return songs.isEmpty()
                 ? ResponseEntity.noContent().build()
                 : ResponseEntity.ok(songs);
     }
 
     @GetMapping("/by-album-id")
-    public ResponseEntity <List<Song>> getSongByAlbumId(@RequestParam int albumId) {
-        List<Song> songs = songService.getSongsByAlbumId(albumId);
+    public ResponseEntity <List<SongDTO>> getSongByAlbumId(@RequestParam int albumId) {
+        List<SongDTO> songs = songService.getSongsByAlbumId(albumId);
         return songs.isEmpty()
                 ? ResponseEntity.noContent().build()
                 : ResponseEntity.ok(songs);
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Song> saveSong(@RequestParam String name, @RequestParam int artistId, @RequestParam int albumId) {
-        Song song =songService.saveSong(name,artistId,albumId);
+    public ResponseEntity<SongDTO> saveSong(@RequestParam String name, @RequestParam int artistId, @RequestParam int albumId) {
+        SongDTO song =songService.saveSong(name,artistId,albumId);
         return ResponseEntity.ok(song);
     }
 
     @PatchMapping("/update-title")
-    public ResponseEntity<Song> updateSongTitle(@RequestParam String name, @RequestParam int songId) {
-        Song song = songService.updateSong(name, songId);
+    public ResponseEntity<SongDTO> updateSongTitle(@RequestParam String name, @RequestParam int songId) {
+        SongDTO song = songService.updateSong(name, songId);
         return ResponseEntity.ok(song);
     }
 
