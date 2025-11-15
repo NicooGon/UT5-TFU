@@ -4,10 +4,8 @@ import AndisUT2.ArtistAPI.DTO.AlbumDTO;
 import AndisUT2.ArtistAPI.DTO.ArtistDTO;
 import AndisUT2.ArtistAPI.DTO.SongDTO;
 import AndisUT2.ArtistAPI.Mapper.SongMapper;
-import AndisUT2.ArtistAPI.Model.Album;
-import AndisUT2.ArtistAPI.Model.Artist;
 import AndisUT2.ArtistAPI.Model.Song;
-import AndisUT2.ArtistAPI.Repository.SongRepository;
+import AndisUT2.ArtistAPI.Repository.Interface.ISongRepository;
 import AndisUT2.ArtistAPI.Service.Interface.IAlbumService;
 import AndisUT2.ArtistAPI.Service.Interface.IArtistService;
 import AndisUT2.ArtistAPI.Service.Interface.ISongService;
@@ -20,13 +18,12 @@ import java.util.List;
 @Service
 public class SongService implements ISongService {
 
-
-    private SongRepository songRepository;
+    private ISongRepository songRepository;
     private IArtistService artistService;
     private IAlbumService albumService;
     private static final SongMapper songMapper = SongMapper.INSTANCE;
 
-    public SongService(SongRepository songRepository, IArtistService artistService, IAlbumService albumService) {
+    public SongService(ISongRepository songRepository, IArtistService artistService, IAlbumService albumService) {
         this.songRepository = songRepository;
         this.artistService = artistService;
         this.albumService = albumService;

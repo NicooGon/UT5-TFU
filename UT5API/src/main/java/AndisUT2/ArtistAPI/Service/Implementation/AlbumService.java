@@ -4,7 +4,7 @@ import AndisUT2.ArtistAPI.DTO.AlbumDTO;
 import AndisUT2.ArtistAPI.Mapper.AlbumMapper;
 import AndisUT2.ArtistAPI.Model.Album;
 import AndisUT2.ArtistAPI.DTO.ArtistDTO;
-import AndisUT2.ArtistAPI.Repository.AlbumRepository;
+import AndisUT2.ArtistAPI.Repository.Interface.IAlbumRepository;
 import AndisUT2.ArtistAPI.Service.Interface.IAlbumService;
 import AndisUT2.ArtistAPI.Service.Interface.IArtistService;
 import org.springframework.http.HttpStatus;
@@ -16,12 +16,12 @@ import java.util.List;
 @Service
 public class AlbumService implements IAlbumService {
 
-    private final AlbumRepository albumRepository;
+    private final IAlbumRepository albumRepository;
     private final IArtistService artistService;
 
     private static final AlbumMapper albumMapper = AlbumMapper.INSTANCE;
 
-    public AlbumService(AlbumRepository albumRepository, IArtistService artistService) {
+    public AlbumService(IAlbumRepository albumRepository, IArtistService artistService) {
         this.albumRepository = albumRepository;
         this.artistService = artistService;
     }

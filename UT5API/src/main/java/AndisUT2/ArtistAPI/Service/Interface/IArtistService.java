@@ -6,9 +6,9 @@ import AndisUT2.ArtistAPI.Model.Artist;
 import java.util.List;
 
 public interface IArtistService {
-    public ArtistDTO getArtistByName(String name);
-    public ArtistDTO getArtistById(int id);
-    public ArtistDTO saveArtist(String name);
-    public ArtistDTO updateArtist(int artistId, String newName);
-    public List<ArtistDTO> getAllArtists();
+    ArtistDTO getArtistByName(String name);
+    ArtistDTO getArtistById(int id);
+    ArtistDTO saveArtist(String name);
+    ArtistDTO updateArtist(int artistId, String newName);
+    List<ArtistDTO> getAllArtists();
 }

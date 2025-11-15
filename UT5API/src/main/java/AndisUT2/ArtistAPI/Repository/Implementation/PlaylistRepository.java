@@ -1,6 +1,7 @@
-package AndisUT2.ArtistAPI.Repository;
+package AndisUT2.ArtistAPI.Repository.Implementation;
 
 import AndisUT2.ArtistAPI.Model.Playlist;
+import AndisUT2.ArtistAPI.Repository.Interface.IPlaylistRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -13,7 +14,7 @@ import java.sql.Statement;
 import java.util.List;
 
 @Repository
-public class PlaylistRepository {
+public class PlaylistRepository implements IPlaylistRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -29,11 +30,13 @@ public class PlaylistRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    @Override
     public List<Playlist> getAllPlaylists() {
         String sql = "SELECT * FROM playlist";
         return jdbcTemplate.query(sql, playlistRowMapper);
     }
 
+    @Override
     public Playlist getPlaylistById(int playlistId) {
         String sql = "SELECT * FROM playlist WHERE playlist_id = ?";
         try {
@@ -44,6 +47,7 @@ public class PlaylistRepository {
         }
     }
 
+    @Override
     public List<Playlist> getPlaylistsByUserId(int userId) {
         String sql = "SELECT * FROM playlist WHERE user_id = ?";
         List<Playlist> playlists = jdbcTemplate.query(sql, playlistRowMapper, userId);
@@ -54,6 +58,7 @@ public class PlaylistRepository {
         return playlists;
     }
 
+    @Override
     public Playlist save(Playlist playlist) {
         String sql = "INSERT INTO playlist (name, user_id) VALUES (?, ?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();

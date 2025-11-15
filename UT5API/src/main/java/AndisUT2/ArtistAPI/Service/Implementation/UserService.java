@@ -3,7 +3,7 @@ package AndisUT2.ArtistAPI.Service.Implementation;
 import AndisUT2.ArtistAPI.DTO.UserDTO;
 import AndisUT2.ArtistAPI.Mapper.UserMapper;
 import AndisUT2.ArtistAPI.Model.User;
-import AndisUT2.ArtistAPI.Repository.UserRepository;
+import AndisUT2.ArtistAPI.Repository.Interface.IUserRepository;
 import AndisUT2.ArtistAPI.Service.Interface.IUserService;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +12,10 @@ import java.util.List;
 @Service
 public class UserService implements IUserService {
 
-    private final UserRepository userRepository;
+    private final IUserRepository userRepository;
     private static final UserMapper userMapper = UserMapper.INSTANCE;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(IUserRepository userRepository) {
         this.userRepository = userRepository;
     }
 

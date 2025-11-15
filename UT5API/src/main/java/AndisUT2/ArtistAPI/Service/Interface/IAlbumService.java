@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface IAlbumService {
 
-    public AlbumDTO getAlbumByName(String name);
-    public AlbumDTO getAlbumById(int id);
-    public List<AlbumDTO> getAllAlbums();
-    public List<AlbumDTO> getAlbumsByArtistId(int artistId);
-    public AlbumDTO saveAlbum(String name, String artistName);
-    public AlbumDTO updateAlbum(int albumId, String newName);
+    AlbumDTO getAlbumByName(String name);
+    AlbumDTO getAlbumById(int id);
+    List<AlbumDTO> getAllAlbums();
+    List<AlbumDTO> getAlbumsByArtistId(int artistId);
+    AlbumDTO saveAlbum(String name, String artistName);
+    AlbumDTO updateAlbum(int albumId, String newName);
 }

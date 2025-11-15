@@ -1,6 +1,6 @@
 package AndisUT2.ArtistAPI.Service.Implementation;
 
-import AndisUT2.ArtistAPI.Repository.PlaylistSongRepository;
+import AndisUT2.ArtistAPI.Repository.Interface.IPlaylistSongRepository;
 import AndisUT2.ArtistAPI.Service.Interface.IPlaylistSongService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -11,9 +11,9 @@ import java.util.List;
 @Service
 public class PlaylistSongService implements IPlaylistSongService {
 
-    private final PlaylistSongRepository playlistSongRepository;
+    private final IPlaylistSongRepository playlistSongRepository;
 
-    public PlaylistSongService(PlaylistSongRepository playlistSongRepository) {
+    public PlaylistSongService(IPlaylistSongRepository playlistSongRepository) {
         this.playlistSongRepository = playlistSongRepository;
     }
 

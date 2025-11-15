@@ -3,7 +3,7 @@ package AndisUT2.ArtistAPI.Service.Implementation;
 import AndisUT2.ArtistAPI.DTO.ArtistDTO;
 import AndisUT2.ArtistAPI.Mapper.ArtistMapper;
 import AndisUT2.ArtistAPI.Model.Artist;
-import AndisUT2.ArtistAPI.Repository.ArtistRepository;
+import AndisUT2.ArtistAPI.Repository.Interface.IArtistRepository;
 import AndisUT2.ArtistAPI.Service.Interface.IArtistService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -14,10 +14,10 @@ import java.util.List;
 @Service
 public class ArtistService implements IArtistService {
 
-    private final ArtistRepository artistRepository;
+    private final IArtistRepository artistRepository;
     private static final ArtistMapper artistMapper = ArtistMapper.INSTANCE;
 
-    public ArtistService(ArtistRepository artistRepository) {
+    public ArtistService(IArtistRepository artistRepository) {
         this.artistRepository = artistRepository;
     }
 

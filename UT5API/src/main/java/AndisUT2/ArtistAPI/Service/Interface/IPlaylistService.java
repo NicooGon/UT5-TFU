@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface IPlaylistService {
 
-    public List<PlaylistDTO> getAllPlaylists();
-    public PlaylistDTO getPlaylistById(int playlistID);
-    public List<PlaylistDTO> getPlaylistsByUserId(int userId);
-    public PlaylistDTO savePlaylist(String name, int userId);
+    List<PlaylistDTO> getAllPlaylists();
+    PlaylistDTO getPlaylistById(int playlistID);
+    List<PlaylistDTO> getPlaylistsByUserId(int userId);
+    PlaylistDTO savePlaylist(String name, int userId);
 }

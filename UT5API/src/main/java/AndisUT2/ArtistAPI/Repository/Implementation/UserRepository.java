@@ -1,7 +1,7 @@
-package AndisUT2.ArtistAPI.Repository;
+package AndisUT2.ArtistAPI.Repository.Implementation;
 
-import AndisUT2.ArtistAPI.Model.Song;
 import AndisUT2.ArtistAPI.Model.User;
+import AndisUT2.ArtistAPI.Repository.Interface.IUserRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -14,7 +14,7 @@ import java.sql.Statement;
 import java.util.List;
 
 @Repository
-public class UserRepository {
+public class UserRepository implements IUserRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -29,11 +29,13 @@ public class UserRepository {
 
     public UserRepository(JdbcTemplate jdbcTemplate) {this.jdbcTemplate = jdbcTemplate;}
 
+    @Override
     public List<User> getAllUsers() {
         String sql = "SELECT * FROM users";
         return jdbcTemplate.query(sql, userRowMapper);
     }
 
+    @Override
     public User getUserById(int userId) {
         String sql = "SELECT * FROM users WHERE user_id = ?";
         try {
@@ -45,6 +47,7 @@ public class UserRepository {
         }
     }
 
+    @Override
     public User getUserByUsername(String username) {
         String sql = "SELECT * FROM users WHERE username = ?";
         try {
@@ -56,6 +59,7 @@ public class UserRepository {
         }
     }
 
+    @Override
     public User save(User user) {
         String sql = "INSERT INTO users (name, email, username) VALUES (?, ?, ?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
