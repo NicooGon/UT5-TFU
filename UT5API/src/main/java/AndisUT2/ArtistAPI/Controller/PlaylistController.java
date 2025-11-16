@@ -1,6 +1,8 @@
 package AndisUT2.ArtistAPI.Controller;
 
 import AndisUT2.ArtistAPI.DTO.PlaylistDTO;
+import AndisUT2.ArtistAPI.DTO.PlaylistWithInfoDTO;
+import AndisUT2.ArtistAPI.Service.Implementation.ApplicationService;
 import AndisUT2.ArtistAPI.Service.Interface.IPlaylistService;
 import io.micrometer.core.annotation.Timed;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,9 @@ public class PlaylistController {
     @Autowired
     private IPlaylistService playlistService;
 
+    @Autowired
+    private ApplicationService applicationService;
+
     @GetMapping("/all")
     public ResponseEntity<List<PlaylistDTO>> getAllPlaylists() {
         List<PlaylistDTO> playlists = playlistService.getAllPlaylists();
@@ -30,8 +35,8 @@ public class PlaylistController {
             percentiles = {0.5, 0.95, 0.99}
     )
     @GetMapping("/{id}")
-    public ResponseEntity<PlaylistDTO> getPlaylistById(@PathVariable int id) {
-        PlaylistDTO playlist = playlistService.getPlaylistById(id);
+    public ResponseEntity<PlaylistWithInfoDTO> getPlaylistById(@PathVariable int id) {
+        PlaylistWithInfoDTO playlist = applicationService.getPlaylistWithInfo(id);
         return ResponseEntity.ok(playlist);
     }
 

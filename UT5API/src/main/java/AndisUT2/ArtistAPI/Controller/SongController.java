@@ -1,7 +1,8 @@
 package AndisUT2.ArtistAPI.Controller;
 
 import AndisUT2.ArtistAPI.DTO.SongDTO;
-import AndisUT2.ArtistAPI.Model.Song;
+import AndisUT2.ArtistAPI.DTO.SongWithInfoDTO;
+import AndisUT2.ArtistAPI.Service.Implementation.ApplicationService;
 import AndisUT2.ArtistAPI.Service.Interface.ISongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,8 @@ public class SongController {
 
     @Autowired
     private ISongService songService;
+    @Autowired
+    private ApplicationService applicationService;
 
     @GetMapping("/all")
     public ResponseEntity<List<SongDTO>> getAllSongs() {
@@ -27,6 +30,12 @@ public class SongController {
     @GetMapping("/by-id")
     public ResponseEntity<SongDTO> getSongById(@RequestParam int id) {
         SongDTO song = songService.getSongById(id);
+        return ResponseEntity.ok(song);
+    }
+
+    @GetMapping("/by-id-info")
+    public ResponseEntity<SongWithInfoDTO> getSongInfoById(@RequestParam int id) {
+        SongWithInfoDTO song = applicationService.getSongWithInfo(id);
         return ResponseEntity.ok(song);
     }
 
