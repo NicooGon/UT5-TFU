@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
-public class ApplicationService {
+public class ApplicationService implements IApplicationService{
 
     private final IAlbumService albumService;
     private final IArtistService artistService;
