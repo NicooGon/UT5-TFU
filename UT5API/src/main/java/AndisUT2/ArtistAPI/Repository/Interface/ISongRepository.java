@@ -12,4 +12,5 @@ public interface ISongRepository {
     List<Song> getSongsByAlbumID(int albumID);
     Song saveSong(Song song);
     Song updateSong(Song song);
+    List<Song> getSongsByIds(List<Integer> ids);
 }

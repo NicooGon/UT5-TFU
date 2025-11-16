@@ -13,4 +13,5 @@ public interface IAlbumService {
     List<AlbumDTO> getAlbumsByArtistId(int artistId);
     AlbumDTO saveAlbum(String name, String artistName);
     AlbumDTO updateAlbum(int albumId, String newName);
+    List<AlbumDTO> getAlbumsByIds(List<Integer> ids);
 }

@@ -4,13 +4,13 @@ import AndisUT2.ArtistAPI.DTO.*;
 import AndisUT2.ArtistAPI.Mapper.AlbumWithInfoMapper;
 import AndisUT2.ArtistAPI.Mapper.PlaylistWithInfoMapper;
 import AndisUT2.ArtistAPI.Mapper.SongWithInfoMapper;
-import AndisUT2.ArtistAPI.Service.Interface.IAlbumService;
-import AndisUT2.ArtistAPI.Service.Interface.IArtistService;
-import AndisUT2.ArtistAPI.Service.Interface.IPlaylistService;
-import AndisUT2.ArtistAPI.Service.Interface.IPlaylistSongService;
+import AndisUT2.ArtistAPI.Service.Interface.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class ApplicationService {
@@ -19,11 +19,12 @@ public class ApplicationService {
     private final IArtistService artistService;
     private final IPlaylistService playlistService;
     private final IPlaylistSongService playlistSongService;
-    private final SongService songService;
+    private final IUserService userService;
+    private final ISongService songService;
     private final SongWithInfoMapper songWithInfoMapper;
     private final AlbumWithInfoMapper albumWithInfoMapper;
     private final PlaylistWithInfoMapper playlistWithInfoMapper;
-    private final UserService userService;
+
 
     public ApplicationService(
             IAlbumService albumService, IArtistService artistService,
@@ -84,6 +85,48 @@ public class ApplicationService {
         return playlistWithInfoMapper.toPlaylistWithInfoDTO(playlist, userDTO, songsWithInfo);
     }
 
+    public PlaylistWithInfoDTO optimizedGetPlaylistWithInfo(int playlistId) {
 
+        PlaylistDTO playlist = playlistService.getPlaylistById(playlistId);
+        UserDTO userDTO = userService.getUserById(playlist.getUserId());
 
+        List<Integer> songIdList = playlistSongService.getSongsByPlaylistId(playlistId);
+
+        List<SongDTO> songsListDTO = songService.getSongsById(songIdList);
+
+        List<ArtistDTO> artistDTOS = artistService.getArtistsByIds(songIdList);
+        Map<Integer, ArtistDTO> artistMap = artistDTOS.stream().collect(Collectors.toMap(ArtistDTO::getArtistId, a -> a));
+
+        List<Integer> albumIds = songsListDTO.stream().map(SongDTO::getAlbumId).distinct().toList();
+        List<AlbumDTO> albums = albumService.getAlbumsByIds(albumIds);
+        Map<Integer, AlbumDTO> albumMap = albums.stream().collect(Collectors.toMap(AlbumDTO::getAlbumId, a -> a));
+
+        List<SongWithInfoDTO> songsWithInfo = songsListDTO.stream()
+                .map(song -> {
+                    ArtistDTO artist = artistMap.get(song.getArtistId());
+                    AlbumDTO album = albumMap.get(song.getAlbumId());
+                    return songWithInfoMapper.toSongWithInfoDTO(song, artist, album);
+                })
+                .toList();
+
+        return playlistWithInfoMapper.toPlaylistWithInfoDTO(playlist, userDTO, songsWithInfo);
+    }
+
+    @Transactional
+    public PlaylistWithInfoDTO optimizedSavePlaylistWithInfo(PlaylistCreateRequestDTO requestDTO) {
+        PlaylistDTO playlistDTO = playlistService.savePlaylist(requestDTO.getName(), requestDTO.getUserId());
+
+        playlistSongService.addSongsToPlaylist(playlistDTO.getPlaylistId(), requestDTO.getSongIds());
+
+        return optimizedGetPlaylistWithInfo(playlistDTO.getPlaylistId());
+    }
+
+    @Transactional
+    public PlaylistWithInfoDTO savePlaylistWithInfo(PlaylistCreateRequestDTO requestDTO) {
+        PlaylistDTO playlistDTO = playlistService.savePlaylist(requestDTO.getName(), requestDTO.getUserId());
+
+        playlistSongService.addSongsToPlaylist(playlistDTO.getPlaylistId(), requestDTO.getSongIds());
+
+        return getPlaylistWithInfo(playlistDTO.getPlaylistId());
+    }
 }

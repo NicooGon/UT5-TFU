@@ -80,5 +80,11 @@ public class ArtistService implements IArtistService {
 
         return artistMapper.artistToArtistDTO(artist);
     }
+
+    @Override
+    public List<ArtistDTO> getArtistsByIds(List<Integer> ids) {
+        List<Artist> artists = artistRepository.getArtistsByIds(ids);
+        return artists.stream().map(artistMapper::artistToArtistDTO).toList();
+    }
 }
 

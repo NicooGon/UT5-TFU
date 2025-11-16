@@ -93,5 +93,16 @@ public class SongRepository implements ISongRepository {
             throw new RuntimeException("No se pudo actualizar la canción con ID " + song.getSongId());
         }
     }
+
+    @Override
+    public List<Song> getSongsByIds(List<Integer> ids) {
+
+        String placeholders = String.join(",", ids.stream().map(id -> "?").toList());
+
+        String sql = "SELECT * FROM song WHERE song_id IN (" + placeholders + ")";
+
+        return jdbcTemplate.query(sql, songMapper, ids.toArray());
+    }
+
 }
 

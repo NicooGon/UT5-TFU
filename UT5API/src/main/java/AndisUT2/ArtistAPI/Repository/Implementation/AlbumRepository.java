@@ -96,4 +96,15 @@ public class AlbumRepository implements IAlbumRepository {
             throw new RuntimeException("No se pudo actualizar el álbum con ID " + album.getAlbumId());
         }
     }
+
+    @Override
+    public List<Album> getAlbumsByIds(List<Integer> ids) {
+        if (ids == null || ids.isEmpty()) return List.of();
+
+        String placeholders = String.join(",", ids.stream().map(id -> "?").toList());
+        String sql = "SELECT * FROM album WHERE album_id IN (" + placeholders + ")";
+
+        return jdbcTemplate.query(sql, albumRowMapper, ids.toArray());
+    }
+
 }
