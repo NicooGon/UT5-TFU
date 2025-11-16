@@ -1,6 +1,8 @@
 package AndisUT2.ArtistAPI.Controller;
 
 import AndisUT2.ArtistAPI.DTO.AlbumDTO;
+import AndisUT2.ArtistAPI.DTO.AlbumWithInfoDTO;
+import AndisUT2.ArtistAPI.Service.Implementation.ApplicationService;
 import AndisUT2.ArtistAPI.Service.Interface.IAlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,8 @@ public class AlbumController {
 
     @Autowired
     private IAlbumService albumService;
+    @Autowired
+    private ApplicationService applicationService;
 
     @GetMapping("/all")
     public ResponseEntity<List<AlbumDTO>> getAllAlbums(){
@@ -32,6 +36,12 @@ public class AlbumController {
     @GetMapping("/by-id")
     public ResponseEntity<AlbumDTO> getAlbumById(@RequestParam int id){
         AlbumDTO album = albumService.getAlbumById(id);
+        return ResponseEntity.ok(album);
+    }
+
+    @GetMapping("/by-id-info")
+    public ResponseEntity<AlbumWithInfoDTO> getAlbumInfoById(@RequestParam int id){
+        AlbumWithInfoDTO album = applicationService.getAlbumWithInfo(id);
         return ResponseEntity.ok(album);
     }
 
