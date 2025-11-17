@@ -2,8 +2,8 @@ package AndisUT2.ArtistAPI.Controller;
 
 import AndisUT2.ArtistAPI.DTO.AlbumDTO;
 import AndisUT2.ArtistAPI.DTO.AlbumWithInfoDTO;
-import AndisUT2.ArtistAPI.Service.Implementation.ApplicationService;
 import AndisUT2.ArtistAPI.Service.Interface.IAlbumService;
+import AndisUT2.ArtistAPI.Service.Interface.IApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,7 @@ public class AlbumController {
     @Autowired
     private IAlbumService albumService;
     @Autowired
-    private ApplicationService applicationService;
+    private IApplicationService applicationService;
 
     @GetMapping("/all")
     public ResponseEntity<List<AlbumDTO>> getAllAlbums(){

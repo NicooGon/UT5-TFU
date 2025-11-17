@@ -1,7 +1,6 @@
 package AndisUT2.ArtistAPI.Controller;
 
 import AndisUT2.ArtistAPI.DTO.UserDTO;
-import AndisUT2.ArtistAPI.Model.User;
 import AndisUT2.ArtistAPI.Service.Interface.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

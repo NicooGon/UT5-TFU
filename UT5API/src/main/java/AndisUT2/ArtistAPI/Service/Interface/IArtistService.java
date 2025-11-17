@@ -10,5 +10,6 @@ public interface IArtistService {
     ArtistDTO getArtistById(int id);
     ArtistDTO saveArtist(String name);
     ArtistDTO updateArtist(int artistId, String newName);
-    List<ArtistDTO> getAllArtists();List<ArtistDTO> getArtistsByIds(List<Integer> ids);
+    List<ArtistDTO> getAllArtists();
+    List<ArtistDTO> getArtistsByIds(List<Integer> ids);
 }

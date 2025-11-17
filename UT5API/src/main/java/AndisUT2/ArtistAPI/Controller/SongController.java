@@ -2,7 +2,7 @@ package AndisUT2.ArtistAPI.Controller;
 
 import AndisUT2.ArtistAPI.DTO.SongDTO;
 import AndisUT2.ArtistAPI.DTO.SongWithInfoDTO;
-import AndisUT2.ArtistAPI.Service.Implementation.ApplicationService;
+import AndisUT2.ArtistAPI.Service.Interface.IApplicationService;
 import AndisUT2.ArtistAPI.Service.Interface.ISongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ public class SongController {
     @Autowired
     private ISongService songService;
     @Autowired
-    private ApplicationService applicationService;
+    private IApplicationService applicationService;
 
     @GetMapping("/all")
     public ResponseEntity<List<SongDTO>> getAllSongs() {

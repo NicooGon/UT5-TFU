@@ -3,7 +3,6 @@ package AndisUT2.ArtistAPI.Controller;
 import AndisUT2.ArtistAPI.DTO.PlaylistCreateRequestDTO;
 import AndisUT2.ArtistAPI.DTO.PlaylistDTO;
 import AndisUT2.ArtistAPI.DTO.PlaylistWithInfoDTO;
-import AndisUT2.ArtistAPI.Service.Implementation.ApplicationService;
 import AndisUT2.ArtistAPI.Service.Interface.IApplicationService;
 import AndisUT2.ArtistAPI.Service.Interface.IPlaylistService;
 import io.micrometer.core.annotation.Timed;
