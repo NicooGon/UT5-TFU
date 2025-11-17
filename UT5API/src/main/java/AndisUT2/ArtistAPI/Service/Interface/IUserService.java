@@ -1,7 +1,6 @@
 package AndisUT2.ArtistAPI.Service.Interface;
 
 import AndisUT2.ArtistAPI.DTO.UserDTO;
-import AndisUT2.ArtistAPI.Model.User;
 
 import java.util.List;
 

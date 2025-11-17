@@ -96,5 +96,11 @@ public class AlbumService implements IAlbumService {
 
         return albumMapper.albumToAlbumDTO(album);
     }
+
+    @Override
+    public List<AlbumDTO> getAlbumsByIds(List<Integer> ids) {
+         List<Album> albums = albumRepository.getAlbumsByIds(ids);
+         return albums.stream().map(albumMapper::albumToAlbumDTO).toList();
+    }
 }
 

@@ -1,8 +1,10 @@
 package AndisUT2.ArtistAPI.Controller;
 
+import AndisUT2.ArtistAPI.DTO.PlaylistCreateRequestDTO;
 import AndisUT2.ArtistAPI.DTO.PlaylistDTO;
 import AndisUT2.ArtistAPI.DTO.PlaylistWithInfoDTO;
 import AndisUT2.ArtistAPI.Service.Implementation.ApplicationService;
+import AndisUT2.ArtistAPI.Service.Interface.IApplicationService;
 import AndisUT2.ArtistAPI.Service.Interface.IPlaylistService;
 import io.micrometer.core.annotation.Timed;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,7 @@ public class PlaylistController {
     private IPlaylistService playlistService;
 
     @Autowired
-    private ApplicationService applicationService;
+    private IApplicationService applicationService;
 
     @GetMapping("/all")
     public ResponseEntity<List<PlaylistDTO>> getAllPlaylists() {
@@ -36,7 +38,7 @@ public class PlaylistController {
     )
     @GetMapping("/{id}")
     public ResponseEntity<PlaylistWithInfoDTO> getPlaylistById(@PathVariable int id) {
-        PlaylistWithInfoDTO playlist = applicationService.getPlaylistWithInfo(id);
+        PlaylistWithInfoDTO playlist = applicationService.optimizedGetPlaylistWithInfo(id);
         return ResponseEntity.ok(playlist);
     }
 
@@ -48,9 +50,25 @@ public class PlaylistController {
                 : ResponseEntity.ok(playlists);
     }
 
+    @Timed(
+            value = "playlist.save-LayerArchitecture",
+            description = "Tiempo de consulta para guardar una playlist en Layer Architecture",
+            percentiles = {0.5, 0.95, 0.99}
+    )
     @PostMapping("/save")
-    public ResponseEntity<PlaylistDTO> savePlaylist(@RequestParam String name, @RequestParam int userId) {
-        PlaylistDTO playlist = playlistService.savePlaylist(name, userId);
+    public ResponseEntity<PlaylistWithInfoDTO> savePlaylist(@RequestBody PlaylistCreateRequestDTO requestDTO) {
+        PlaylistWithInfoDTO playlist =  applicationService.savePlaylistWithInfo(requestDTO);
+        return ResponseEntity.ok(playlist);
+    }
+
+    @Timed(
+            value = "playlist.save-LayerArchitecture",
+            description = "Tiempo de consulta para guardar una playlist en Layer Architecture optimizada",
+            percentiles = {0.5, 0.95, 0.99}
+    )
+    @PostMapping("/save-optimized")
+    public ResponseEntity<PlaylistWithInfoDTO> saveOptimizedPlaylist(@RequestBody PlaylistCreateRequestDTO requestDTO) {
+        PlaylistWithInfoDTO playlist =  applicationService.optimizedSavePlaylistWithInfo(requestDTO);
         return ResponseEntity.ok(playlist);
     }
 }

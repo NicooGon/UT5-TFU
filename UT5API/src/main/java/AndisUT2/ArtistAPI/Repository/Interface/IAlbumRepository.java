@@ -11,4 +11,5 @@ public interface IAlbumRepository {
     List<Album> getAlbumsByArtistId(int artistId);
     Album saveAlbum(Album album);
     Album updateAlbum(Album album);
+    List<Album> getAlbumsByIds(List<Integer> ids);
 }

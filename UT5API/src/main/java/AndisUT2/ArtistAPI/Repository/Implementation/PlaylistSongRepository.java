@@ -30,4 +30,17 @@ public class PlaylistSongRepository implements IPlaylistSongRepository {
         String sql = "SELECT playlist_id FROM playlist_song WHERE song_id = ?";
         return jdbcTemplate.queryForList(sql, Integer.class, songId);
     }
+
+    @Override
+    public void addSongsToPlaylist(int playlistId, List<Integer> songIds) {
+        String sql = "INSERT INTO playlist_song (playlist_id, song_id) VALUES (?, ?)";
+
+        jdbcTemplate.batchUpdate(sql, songIds, songIds.size(),
+                (ps, songId) -> {
+                    ps.setInt(1, playlistId);
+                    ps.setInt(2, songId);
+                }
+        );
+    }
+
 }

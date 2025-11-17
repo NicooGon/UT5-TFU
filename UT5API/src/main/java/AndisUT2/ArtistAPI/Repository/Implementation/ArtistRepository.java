@@ -76,4 +76,19 @@ public class ArtistRepository implements IArtistRepository {
             throw new RuntimeException("No se pudo actualizar el artista con ID " + artist.getArtistId());
         }
     }
+
+    @Override
+    public List<Artist> getArtistsByIds(List<Integer> ids) {
+
+        if (ids == null || ids.isEmpty()) {
+            return List.of();
+        }
+
+        String placeholders = String.join(",", ids.stream().map(id -> "?").toList());
+
+        String sql = "SELECT * FROM artist WHERE artist_id IN (" + placeholders + ")";
+
+        return jdbcTemplate.query(sql, artistRowMapper, ids.toArray());
+    }
+
 }

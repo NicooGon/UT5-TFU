@@ -104,4 +104,10 @@ public class SongService implements ISongService {
 
         return songMapper.songToSongDTO(song);
     }
+
+    public List<SongDTO> getSongsById(List<Integer> ids) {
+        List<Song> songs = songRepository.getSongsByIds(ids);
+        return songs.stream().map(songMapper::songToSongDTO).toList();
+    }
+
 }

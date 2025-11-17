@@ -10,4 +10,5 @@ public interface IArtistRepository {
     List<Artist> getAllArtists();
     Artist saveArtist(Artist artist);
     Artist updateArtist(Artist artist);
+    List<Artist> getArtistsByIds(List<Integer> ids);
 }

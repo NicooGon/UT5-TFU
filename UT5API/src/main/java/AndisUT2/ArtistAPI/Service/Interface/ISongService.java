@@ -14,6 +14,7 @@ public interface ISongService {
     List<SongDTO> getSongsByAlbumId(int albumId);
     SongDTO updateSong(String name, int songId);
     SongDTO saveSong(String name, int artistId, int albumId);
+    List<SongDTO> getSongsById(List<Integer> ids);
 
 
 }

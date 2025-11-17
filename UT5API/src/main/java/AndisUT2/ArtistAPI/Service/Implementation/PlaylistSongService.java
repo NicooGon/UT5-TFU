@@ -38,4 +38,10 @@ public class PlaylistSongService implements IPlaylistSongService {
     public List<Integer> getPlaylistsBySongId(int songId) {
         return playlistSongRepository.getPlaylistsBySongId(songId);
     }
+
+    @Override
+    public void addSongsToPlaylist(int playlistId, List<Integer> songIds) {
+        playlistSongRepository.addSongsToPlaylist(playlistId, songIds);
+    }
+
 }

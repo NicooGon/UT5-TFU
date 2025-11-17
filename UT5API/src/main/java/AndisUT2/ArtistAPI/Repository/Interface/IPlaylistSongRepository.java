@@ -6,4 +6,6 @@ public interface IPlaylistSongRepository {
     void addSongToPlaylist(int playlistId, int songId);
     List<Integer> getSongsByPlaylistId(int playlistId);
     List<Integer> getPlaylistsBySongId(int songId);
+    void addSongsToPlaylist(int playlistId, List<Integer> songIds);
 }
+
